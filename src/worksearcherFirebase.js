@@ -39,7 +39,7 @@ let allSavedAds = [];
 let allSaveAdslength = [];
 let flagAds = [true];
 console.log(flagAds);
-let usernumber, useremail, userfirstname, userlastname;
+let usernumber, useremail, userfirstname, userlastname,userPhone;
 
 const adColRef = collection(db, "Ads");
 const docAllusers = collection(db, "users");
@@ -54,6 +54,7 @@ getDocs(docAllusers).then((snapshot) => {
       useremail = allUsers[index].email;
       userfirstname = allUsers[index].firstname;
       userlastname = allUsers[index].lastname;
+      userPhone = allUsers[index].phone;
     }
   }
   document.querySelector("#welcometext").innerHTML =
@@ -202,8 +203,7 @@ getDocs(adColRef)
             case 1:
               if (
                 Ads[index].location == Loc &&
-                Ads[index].dep == Thum &&
-                Ads[index].percent == Per
+                Ads[index].dep == Thum
               ) {
                 $("#try2").append(
                   "<div class='Added col-md-4'> <div class='card mb-4 box-shadow'><img class='card-img-top' src='/dist/img/occpics/occ" +
@@ -353,8 +353,8 @@ getDocs(adColRef)
               document.querySelector("#WSdescribe").innerHTML = Ads[index].des;
               document.querySelector("#WSreq").innerHTML = Ads[index].req;
               document.querySelector("#WSdep").innerHTML = Ads[index].dep;
-              document.querySelector("#WSpercent").innerHTML =
-                Ads[index].percent;
+              // document.querySelector("#WSpercent").innerHTML =
+              //   Ads[index].percent;
               document.querySelector("#WSimg").src =
                 "/dist/img/occpics/occ" + Ads[index].imgid + ".jpeg";
               adsNum = index;
@@ -381,7 +381,7 @@ getDocs(adColRef)
                       buttonS.style.background = "#4CAF50";
                       buttonS.style.color = "white";
                       buttonS.style.borderColor = "white";
-                      buttonS.innerHTML = "✔ משרה נשמרה";
+                      buttonS.innerHTML = "✔ מודעה נשמרה";
                       flagAds[0] = false;
                       break;
                     } else {
@@ -408,7 +408,7 @@ getDocs(adColRef)
               Saveremail: logEmail,
               idOfAds: Ads[adsNum].id,
             }).then(() => {
-              console.log("המשרה נשמרה בהצלחה");
+              console.log("המודעה נשמרה בהצלחה");
             });
           } else if (flagAds[0] == false) {
             const docSavedAds = doc(
@@ -444,6 +444,7 @@ getDocs(adColRef)
               downloadLink: linkU,
               emailOfSender: logEmail,
               imgid: Ads[adsNum].imgid,
+              phoneNumber: userPhone,
             }).then(() => {
               console.log("הודעה הועברה למעסיק");
             });

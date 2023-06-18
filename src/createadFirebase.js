@@ -145,7 +145,6 @@ adForm.addEventListener("submit", (e) => {
     emailofemployer: logEmail,
     des: adForm.desc.value,
     location: adForm.Adloc.value,
-    percent: adForm.MainOccupation.value,
     dep: adForm.MainOccupation1.value,
     imgid: whichnumber(adForm.MainOccupation1.value),
     req: adForm.reqs.value,

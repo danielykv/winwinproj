@@ -607,3 +607,6 @@ input::placeholder {
 .bg-custom-class {
   background-color: #FBF8F1
 }
+.ChoosePer {
+  display: none;
+}

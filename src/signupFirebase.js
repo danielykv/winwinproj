@@ -36,6 +36,7 @@ const auth = getAuth();
 
 // sign up
 const signUpForm = document.querySelector(".Fsignup");
+console.log(signUpForm);
 signUpForm.addEventListener("submit", (e) => {
   e.preventDefault();
   // if(signUpForm.email.value=="") {
@@ -44,13 +45,13 @@ signUpForm.addEventListener("submit", (e) => {
   // if(signUpForm.email.value!="") {
   //   document.querySelector("#msg1").innerHTML="";
   // }
+  console.log(signUpForm.email.value);
   const email = signUpForm.email.value;
   const password = signUpForm.password.value;
   const firstname = signUpForm.firstname.value;
   const lastname = signUpForm.lastname.value;
   const EmployerOrSearcher = signUpForm.EmployerOr.value;
   const passwordlength = password.length;
-  const phoneNumber = phone.value;
   console.log(passwordlength);
   if (
     firstname != "" &&
@@ -68,6 +69,7 @@ signUpForm.addEventListener("submit", (e) => {
     if (EmployerOrSearcher == "1") {
       document.querySelector("#msg5").innerHTML = "";
       var Company = signUpForm.Company.value;
+
       var eOrS = "Employer";
       if (Company != "") {
         document.querySelector("#msg6").innerHTML = "";
@@ -94,7 +96,7 @@ signUpForm.addEventListener("submit", (e) => {
       var gender = signUpForm.gender.value;
       var Occ = signUpForm.MainOcc.value;
       var phone = signUpForm.phone.value;
-
+      
       if (age != "" && gender != "" && Occ != "") {
         document.querySelector("#msg7").innerHTML = "";
         document.querySelector("#msg8").innerHTML = "";

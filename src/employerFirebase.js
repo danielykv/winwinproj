@@ -182,9 +182,9 @@ getDocs(adColRef)
                 sended[i].imgid +
                 ".jpeg' alt='img'> <div class='text mx-2'><h4>המשתמש " +
                 sended[i].nameOfsender +
-                " הגיש קורות חיים למשרתך</h4   <p><a href=" +
+                " הגיש פנייה למודעתך</h4>  <p><h4>תוכן הפנייה: " +
                 sended[i].downloadLink +
-                "> לחץ כאן על מנת להוריד</a> </p> </div><i id='notidelete" +
+                "</h4></p> <h4>מספר טלפון ליצירת קשר: " + sended[i].phoneNumber+"<h4></div><i id='notidelete" +
                 i +
                 "' class='mt-4 mx-3 fa-regular fa-trash-can'></i> </div>"
             );
@@ -240,7 +240,6 @@ getDocs(adColRef)
           document.querySelector("#Mviews").innerHTML =
             Ads[index].viewsCount + " <i class='fa-regular fa-eye'></i>";
           document.querySelector("#Mdep").innerHTML = Ads[index].dep;
-          document.querySelector("#Mpercent").innerHTML = Ads[index].percent;
           document.querySelector("#Mimg").src =
             "/dist/img/occpics/occ" + Ads[index].imgid + ".jpeg";
         });
